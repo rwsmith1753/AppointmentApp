@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="reports-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReportsController">
+    <children>
+        <TabPane prefHeight="624.0" prefWidth="1150.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="summaryTab" onSelectionChanged="#reportsTabListener" text="Appointments Summary">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="631.0" prefWidth="1150.0">
+                            <children>
+                                <TableView fx:id="typeSummaryTable" layoutX="275.0" prefHeight="300.0" prefWidth="315.0">
+                                    <columns>
+                                        <TableColumn fx:id="typeReportCol" prefWidth="175.0" text="Appointment Type" />
+                                        <TableColumn fx:id="typeSumReportCol" prefWidth="140.0" text="Total Appointments" />
+                                    </columns>
+                                </TableView>
+                        <TableView fx:id="monthSumTable" prefHeight="306.0" prefWidth="260.0">
+                          <columns>
+                            <TableColumn fx:id="monthSumCol" prefWidth="120.0" text="Month" />
+                            <TableColumn fx:id="appointmentSumCol" prefWidth="140.0" text="Total Appointments" />
+                          </columns>
+                        </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="scheduleTab" onSelectionChanged="#reportsTabListener" text="Contact Schedules">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="593.0" prefWidth="1045.0">
+                            <children>
+                                <TableView fx:id="contactReportsTable" prefHeight="354.0" prefWidth="110.0">
+                                    <columns>
+                                        <TableColumn fx:id="contactReportsCol" prefWidth="109.0" style="-fx-size: 50" text="Select a contact &#10;to show schedule" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="scheduleReportsTable" layoutX="110.0" prefHeight="354.0" prefWidth="1041.0">
+                                    <columns>
+                                        <TableColumn fx:id="apptIDReportCol" prefWidth="44.0" text="ID" />
+                                        <TableColumn fx:id="titleReportCol" prefWidth="134.0" text="Title" />
+                                        <TableColumn fx:id="descReportCol" prefWidth="205.0" text="Description" />
+                                        <TableColumn fx:id="locReportCol" prefWidth="116.0" text="Location" />
+                                        <TableColumn fx:id="typeScheduleReportCol" prefWidth="105.0" text="Type" />
+                                        <TableColumn fx:id="startCols" prefWidth="203.0" text="Start">
+                                            <columns>
+                                                <TableColumn fx:id="startDateReportCol" prefWidth="95.0" text="Date" />
+                                                <TableColumn fx:id="startTimeReportCol" prefWidth="75.0" text="Time" />
+                                            </columns>
+                                        </TableColumn>
+                                        <TableColumn fx:id="endCols" prefWidth="120.0" text="End">
+                                            <columns>
+                                                <TableColumn fx:id="endDateReportCol" prefWidth="95.0" text="Date" />
+                                                <TableColumn fx:id="endTimeReportCol" prefWidth="75.0" text="Time" />
+                                            </columns>
+                                        </TableColumn>
+                                        <TableColumn fx:id="customerIDReportCol" prefWidth="96.0" text="Customer ID" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="activityTab" onSelectionChanged="#reportsTabListener" text="Activity Summary">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="activityTable" layoutX="144.0" layoutY="10.0" prefHeight="354.0" prefWidth="283.0">
+                                    <columns>
+                                        <TableColumn fx:id="customerActivityCol" prefWidth="148.0" text="Customer" />
+                                        <TableColumn fx:id="apptActivityCol" prefWidth="138.0" text="Total Appointments" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="contactActivityTable" layoutY="10.0" prefHeight="354.0" prefWidth="145.0">
+                                    <columns>
+                                        <TableColumn fx:id="contactActivityCol" prefWidth="144.0" style="-fx-size-: 50" text="Select a contact &#10;to show schedule" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

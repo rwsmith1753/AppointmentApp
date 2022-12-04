@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+   <children>
+      <TabPane prefHeight="624.0" prefWidth="1150.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="apptTab" text="Appointments">
+            <content>
+              <AnchorPane fx:id="apptAnchor" minHeight="0.0" minWidth="0.0" prefHeight="631.0" prefWidth="1150.0">
+                     <children>
+                        <TableView fx:id="apptTable" editable="true" layoutY="-1.0" prefHeight="290.0" prefWidth="1150.0">
+                          <columns>
+                            <TableColumn fx:id="apptIDCol" editable="false" prefWidth="55.0" text="ID" />
+                            <TableColumn fx:id="titleCol" prefWidth="115.0" text="Title" />
+                              <TableColumn fx:id="descCol" prefWidth="173.0" text="Description" />
+                              <TableColumn fx:id="locCol" prefWidth="116.0" text="Location" />
+                              <TableColumn fx:id="contactIDCol" prefWidth="111.0" text="Contact ID" />
+                              <TableColumn fx:id="typeCol" prefWidth="105.0" text="Type" />
+                              <TableColumn fx:id="startCols" prefWidth="203.0" text="Start">
+                                 <columns>
+                                    <TableColumn fx:id="startDateCol" prefWidth="95.0" text="Date" />
+                                    <TableColumn fx:id="startTimeCol" prefWidth="75.0" text="Time" />
+                                 </columns></TableColumn>
+                              <TableColumn fx:id="endCols" prefWidth="120.0" text="End">
+                                 <columns>
+                                    <TableColumn fx:id="endDateCol" prefWidth="95.0" text="Date" />
+                                    <TableColumn fx:id="endTimeCol" prefWidth="75.0" text="Time" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn fx:id="customerIDCol" prefWidth="77.0" style="-fx-wrap-text: true;" text="Customer ID" />
+                              <TableColumn fx:id="userIDCol" prefWidth="57.0" text="User ID" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="newApptBtn" layoutX="14.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#addAppt" text="New Appointment" />
+                        <Button layoutX="158.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#modifyAppt" text="Modify Appointment" />
+                        <Button layoutX="310.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#deleteAppt" text="Delete Appointment" />
+                        <Text layoutX="16.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Id" />
+                        <TextField fx:id="apptIDBox" editable="false" layoutX="18.0" layoutY="377.0" prefHeight="26.0" prefWidth="80.0" promptText="Auto" />
+                        <Text layoutX="146.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+                        <TextField fx:id="titleBox" disable="true" layoutX="118.0" layoutY="378.0" prefHeight="26.0" prefWidth="80.0" />
+                        <Text layoutX="328.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+                        <TextField fx:id="descBox" disable="true" layoutX="230.0" layoutY="379.0" prefHeight="26.0" prefWidth="257.0" />
+                        <Text layoutX="550.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
+                        <TextField fx:id="locBox" disable="true" layoutX="509.0" layoutY="379.0" prefHeight="26.0" prefWidth="126.0" />
+                        <Text layoutX="702.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" />
+                         <ComboBox fx:id="contactCombo" disable="true" layoutX="648.0" layoutY="379.0" onMouseClicked="#fillContactsCombo" prefHeight="26.0" prefWidth="151.0" />
+                         <Text layoutX="867.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+                        <TextField fx:id="typeBox" disable="true" layoutX="815.0" layoutY="378.0" prefHeight="26.0" prefWidth="132.0" />
+                        <Text layoutX="921.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                         <ComboBox fx:id="customerCombo" disable="true" layoutX="969.0" layoutY="378.0" onMouseClicked="#fillCustomersCombo" prefHeight="26.0" prefWidth="175.0" />
+                         <Text layoutX="363.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
+                        <Text layoutX="694.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" />
+                        <DatePicker fx:id="startDatePicker" disable="true" layoutX="324.0" layoutY="440.0" prefHeight="26.0" prefWidth="130.0" />
+                         <ComboBox fx:id="startCombo" disable="true" layoutX="482.0" layoutY="440.0" onMouseClicked="#startComboClick" prefHeight="26.0" prefWidth="133.0" />
+                         <DatePicker fx:id="endDatePicker" disable="true" layoutX="654.0" layoutY="441.0" prefHeight="26.0" prefWidth="130.0" />
+                        <ComboBox fx:id="endCombo" disable="true" layoutX="819.0" layoutY="441.0" onMouseClicked="#endComboClick" prefHeight="26.0" prefWidth="127.0" />
+                        <Text layoutX="522.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
+                         <ComboBox fx:id="userCombo" disable="true" layoutX="969.0" layoutY="442.0" onMouseClicked="#fillUserCombo" prefHeight="26.0" prefWidth="175.0" />
+                         <Text layoutX="857.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Time" />
+                        <Text layoutX="1037.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Text layoutX="1030.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" />
+                        <Button fx:id="saveApptBtn" disable="true" layoutX="18.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#saveAppt" text="Save Appointment" />
+                        <Text layoutX="1044.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" />
+                        <RadioButton fx:id="weeklyRadio" layoutX="648.0" layoutY="311.0" mnemonicParsing="false" onAction="#viewWeekly" text="Weekly" />
+                        <RadioButton fx:id="monthlyRadio" layoutX="563.0" layoutY="311.0" mnemonicParsing="false" onAction="#viewMonthly" text="Monthly" />
+                        <RadioButton fx:id="allRadio" layoutX="493.0" layoutY="311.0" mnemonicParsing="false" onAction="#viewAll" selected="true" text="All" />
+                        <Button fx:id="exitBtn" layoutX="18.0" layoutY="477.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+                        <Button fx:id="cancelApptBtn" layoutX="158.0" layoutY="417.0" mnemonicParsing="false" onAction="#cancelAppt" text="Cancel" />
+                        <Text fx:id="cancelText" disable="true" fill="#e10000" layoutX="972.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="169.21630859375" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="custTab" text="Customers">
+            <content>
+              <AnchorPane fx:id="customerAnchor" minHeight="0.0" minWidth="0.0" prefHeight="593.0" prefWidth="1045.0">
+                     <children>
+                        <TableView fx:id="custTable" layoutY="-2.0" prefHeight="290.0" prefWidth="1150.0">
+                          <columns>
+                            <TableColumn fx:id="custIDCol" prefWidth="100.0" text="Customer_ID" />
+                            <TableColumn fx:id="custNameCol" prefWidth="182.0" text="Customer_Name" />
+                              <TableColumn fx:id="addressCol" minWidth="2.0" prefWidth="207.0" text="Address" />
+                              <TableColumn fx:id="regionCol" prefWidth="126.0" text="Region" />
+                              <TableColumn fx:id="countryCol" prefWidth="126.0" text="Country" />
+                              <TableColumn fx:id="postalCol" prefWidth="126.0" text="Postal_Code" />
+                              <TableColumn fx:id="phoneCol" prefWidth="119.0" text="Phone" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="140.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#modifyCustomer" text="Modify Customer" />
+                        <Button layoutX="274.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#deleteCustomer" text="Delete Customer" />
+                        <Button fx:id="newCustomerBtn" layoutX="20.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#newCustomer" text="New Customer" />
+                        <TextField fx:id="custIDBox" editable="false" layoutX="14.0" layoutY="381.0" prefHeight="26.0" prefWidth="80.0" promptText="Auto" />
+                        <Text layoutX="20.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID" />
+                        <TextField fx:id="custNameBox" disable="true" layoutX="130.0" layoutY="381.0" prefHeight="26.0" prefWidth="144.0" />
+                        <Text layoutX="157.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name" />
+                        <TextField fx:id="addressBox" disable="true" layoutX="303.0" layoutY="381.0" prefHeight="26.0" prefWidth="205.0" />
+                        <Text layoutX="383.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+                        <TextField fx:id="postalCodeBox" disable="true" layoutX="547.0" layoutY="381.0" prefHeight="26.0" prefWidth="117.0" />
+                        <Text layoutX="573.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code" />
+                        <TextField fx:id="phoneBox" disable="true" layoutX="690.0" layoutY="381.0" prefHeight="26.0" prefWidth="127.0" />
+                        <Text layoutX="736.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" />
+                        <Button fx:id="saveCustomerBtn" disable="true" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#saveCustomer" text="Save Customer" />
+                        <ComboBox fx:id="countryCombo" disable="true" layoutX="321.0" layoutY="452.0" onMouseClicked="#getCountries" prefHeight="26.0" prefWidth="145.0" />
+                        <Text layoutX="372.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
+                        <ComboBox fx:id="regionCombo" disable="true" layoutX="494.0" layoutY="452.0" onMouseClicked="#getRegions" prefHeight="26.0" prefWidth="145.0" />
+                        <Text layoutX="554.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region" />
+                        <Button fx:id="cancelCustomerBtn" layoutX="130.0" layoutY="421.0" mnemonicParsing="false" onAction="#cancelCustomer" text="Cancel" />
+                        <Text fx:id="deleteCustomerText" disable="true" fill="#e10000" layoutX="931.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="204.21630859375" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="reportsTab" text="Reports">
+<!--              <content>-->
+<!--                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">-->
+<!--                    <children>-->
+<!--                        <BorderPane fx:id="reportsPane" prefHeight="520.0" prefWidth="1150.0" />-->
+<!--                    </children>-->
+<!--                  </AnchorPane>-->
+<!--              </content>-->
+               <content>
+                  <AnchorPane prefHeight="526.0" prefWidth="1150.0">
+                     <children>
+                        <BorderPane fx:id="reportsPane" prefHeight="520.0" prefWidth="1150.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

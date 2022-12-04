@@ -1,0 +1,4 @@
+.reports-pane .table-view .column-header,
+.reports-pane .table-view .column-header-background .filler {
+    -fx-size: 25;
+}
