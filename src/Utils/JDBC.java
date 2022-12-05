@@ -8,14 +8,16 @@ import java.sql.DriverManager;
  */
 public class JDBC {
     //Database location and credentials
+    private static final UN = "[Username]";
+    private static final PW = "[Password]";
     private static final String protocol = "jdbc";
     private static final String vendor = ":mysql:";
     private static final String location = "//localhost/";
     private static final String databaseName = "client_schedule";
     private static final String jdbcUrl = protocol + vendor + location + databaseName + "?connectionTimeZone = SERVER"; // LOCAL
     private static final String driver = "com.mysql.cj.jdbc.Driver"; // Driver reference
-    private static final String userName = "root";
-    private static String password = "litlpiney15";
+    private static String userName = UN;
+    private static String password = PW;
 
     /**
      * The constant connection.
